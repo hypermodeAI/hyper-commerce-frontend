@@ -23,7 +23,7 @@ export async function ProductTile({
         objectFit="cover"
         className="absolute"
       />
-      <div className="bg-black flex items-center absolute bottom-0 left-0 mb-6 ml-6 border border-white/40 text-sm font-semibold rounded-full p-1 w-2/3 overflow-hidden">
+      <div className="bg-black flex items-center justify-between absolute bottom-0 left-0 mb-6 ml-6 border border-white/40 text-sm font-semibold rounded-full p-1 w-2/3 overflow-hidden">
         <div className="px-2 truncate">{product?.product?.name}</div>
         <div className="bg-indigo-500 rounded-full p-1 px-2">
           <span>$</span>

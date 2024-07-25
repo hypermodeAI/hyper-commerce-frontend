@@ -42,7 +42,7 @@ function ThreeItemGridItem({
 
 export async function ThreeItemGrid() {
   const response = await searchProductWithLLM(
-    "give me the most popular and unique items",
+    "stuffed animals",
     3,
     1,
   );

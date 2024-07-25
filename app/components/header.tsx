@@ -8,11 +8,9 @@ import Logo from "./logo";
 export default function Header() {
   return (
     <div className="flex items-center justify-between space-x-4 px-4">
-      <Link href="/">
-        <Suspense fallback={<div>Loading</div>}>
-          <Logo />
-        </Suspense>
-      </Link>
+      <Suspense fallback={<div>Loading</div>}>
+        <Logo />
+      </Suspense>
       <Suspense fallback={<SearchInputSkeleton />}>
         <Search />
       </Suspense>

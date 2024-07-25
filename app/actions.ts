@@ -127,6 +127,8 @@ export async function getProduct(id: string) {
         name
         description
         stars
+        price
+        image
       }
     }
   `;

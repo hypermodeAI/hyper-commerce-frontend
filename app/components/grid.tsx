@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { searchProductWithLLM } from "../actions";
 import { TileSkeleton } from "./skeletons";
 import { ProductTile } from "./tile";
-import Link from "next/link";
 
 function ThreeItemGridItem({
   item,
@@ -28,24 +27,17 @@ function ThreeItemGridItem({
           : "md:col-span-2 md:row-span-1"
       }
     >
-      <Link
-        className="relative block aspect-square h-full w-full"
-        href={`/product/${item?.product?.name}`}
-      >
+      <div className="relative block aspect-square h-full w-full">
         <Suspense fallback={<TileSkeleton />}>
           <ProductTile product={item} />
         </Suspense>
-      </Link>
+      </div>
     </div>
   );
 }
 
 export async function ThreeItemGrid() {
-  const response = await searchProductWithLLM(
-    "stuffed animals",
-    3,
-    1,
-  );
+  const response = await searchProductWithLLM("stuffed animals", 3, 1);
 
   const topThreeProducts =
     response?.data?.searchProductWithLLM?.searchRes.searchObjs || [];

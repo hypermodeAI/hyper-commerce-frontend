@@ -17,7 +17,7 @@ const fetchQuery = async ({ query, variables }: FetchQueryProps) => {
         query,
         variables,
       }),
-      cache: "force-cache",
+      cache: 'no-store',
     });
 
     if (res.status < 200 || res.status >= 300) {

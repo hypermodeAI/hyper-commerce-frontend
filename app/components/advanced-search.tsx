@@ -3,31 +3,39 @@
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useOptimistic, useTransition } from "react";
 import { StarRating } from "./star-rating";
+import { XCircleIcon } from "@heroicons/react/24/outline";
 
 export function AdvancedSearch() {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
 
-  // Initialize optimistic state with current itemsPerPage
   const [optimisticItemsPerPage, setOptimisticItemsPerPage] = useOptimistic(
-    searchParams?.get("itemsPerPage") || "10",
+    searchParams?.get("itemsPerPage") || "10"
   );
   const [pending, startTransition] = useTransition();
 
-  // Handle change of items per page
   const handleItemsPerPageChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("itemsPerPage", value);
 
-    // Optimistically update state
     setOptimisticItemsPerPage(value);
 
-    // Start transition to handle routing update
     startTransition(() => {
       replace(`${pathname}?${params?.toString()}`);
     });
   };
+
+  function clearRatingSearch() {
+    const params = new URLSearchParams(searchParams);
+    params.set("rating", "0");
+
+    startTransition(() => {
+      replace(`${pathname}?${params?.toString()}`);
+    });
+  }
+
+  const rating = searchParams?.get("rating");
 
   return (
     <div className="w-64 space-y-2 text-stone-400">
@@ -40,9 +48,19 @@ export function AdvancedSearch() {
       </div>
       <div>
         <p className="uppercase text-sm">Customer Reviews</p>
+
         <div className="flex items-center space-x-2">
           <StarRating />
           <span className="text-sm">& up</span>
+          {rating && rating !== "0" && (
+            <button
+              onClick={clearRatingSearch}
+              className="text-white/80 hover:text-white/100 text-xs flex items-center"
+            >
+              <XCircleIcon className="h-4 mr-1" />
+              <span>Clear</span>
+            </button>
+          )}
         </div>
       </div>
       <div>

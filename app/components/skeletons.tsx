@@ -77,3 +77,15 @@ export function ProductSkeleton() {
     </div>
   );
 }
+
+export function AdvancedSearchSkeleton() {
+  return <div className="w-64 space-y-2 text-stone-400"></div>;
+}
+
+export function SearchInputSkeleton() {
+  return (
+    <div className="relative flex flex-1 flex-shrink-0">
+      <div className="peer block w-full h-11 rounded-md border border-stone-700 py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black" />
+    </div>
+  );
+}

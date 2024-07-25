@@ -1,7 +1,9 @@
-import { ProductTile } from "../components/tile";
 import { AdvancedSearch } from "../components/advanced-search";
 import { Suspense } from "react";
-import { SearchSkeleton } from "../components/skeletons";
+import {
+  SearchSkeleton,
+  AdvancedSearchSkeleton,
+} from "../components/skeletons";
 import { SearchResultsGrid } from "../components/search-results-grid";
 
 export const metadata = {
@@ -24,7 +26,9 @@ export default async function SearchPage({
   };
   return (
     <div className="px-4 flex space-x-4">
-      <AdvancedSearch />
+      <Suspense fallback={<AdvancedSearchSkeleton />}>
+        <AdvancedSearch />
+      </Suspense>
       <div className="w-full">
         <Suspense fallback={<SearchSkeleton />}>
           <SearchResultsGrid

@@ -44,6 +44,7 @@ export async function SearchResultsGrid({
             {products.map(
               (
                 item: {
+                  product: {
                     description: string;
                     id: string;
                     name: string;
@@ -51,19 +52,24 @@ export async function SearchResultsGrid({
                     price: string;
                     stars: number;
                     isStocked: string;
+                  };
                 },
                 i: number
               ) => (
                 <div key={i} className="h-[40vh]">
-                  <ProductTile product={item} />
+                  <ProductTile product={item?.product} />
                 </div>
               )
             )}
           </div>
         ) : (
           <div className="py-4 w-full text-white/40 flex flex-col items-center justify-center">
-            <div className="font-semibold text-2xl">No items matching your search</div>
-            <div>Try searching again, such as: &quot;Halloween decorations&quot;</div>
+            <div className="font-semibold text-2xl">
+              No items matching your search
+            </div>
+            <div>
+              Try searching again, such as: &quot;Halloween decorations&quot;
+            </div>
           </div>
         )}
       </div>

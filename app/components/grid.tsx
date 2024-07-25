@@ -8,6 +8,7 @@ function ThreeItemGridItem({
   size,
 }: {
   item: {
+    product: {
       description: string;
       id: string;
       name: string;
@@ -15,6 +16,7 @@ function ThreeItemGridItem({
       price: string;
       stars: number;
       isStocked: string;
+    };
   };
   size: "full" | "half";
 }) {
@@ -28,7 +30,7 @@ function ThreeItemGridItem({
     >
       <div className="relative block aspect-square h-full w-full">
         <Suspense fallback={<TileSkeleton />}>
-          <ProductTile product={item} />
+          <ProductTile product={item?.product} />
         </Suspense>
       </div>
     </div>
@@ -36,7 +38,11 @@ function ThreeItemGridItem({
 }
 
 export async function ThreeItemGrid() {
-  const response = await searchProductWithLLM("Items that people of all ages would enjoy", 3, 1);
+  const response = await searchProductWithLLM(
+    "Items that people of all ages would enjoy",
+    3,
+    1
+  );
 
   const topThreeProducts =
     response?.data?.searchProductWithLLM?.searchRes.searchObjs || [];

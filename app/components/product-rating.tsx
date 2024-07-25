@@ -1,7 +1,7 @@
 import { StarIcon as SolidStar } from "@heroicons/react/24/solid";
 import { StarIcon as OutlineStar } from "@heroicons/react/24/outline";
 
-export default function StarRating({ rating }: { rating: number }) {
+export default function StarRating({ rating, color }: { rating: number, color?: string }) {
   const totalStars = 5;
 
   const fullStars = Math.floor(rating);
@@ -35,6 +35,7 @@ export default function StarRating({ rating }: { rating: number }) {
                   width: "20px", // Adjusted size
                   height: "20px", // Adjusted size
                   overflow: "hidden",
+                  color: color || 'white',
                 }}
               >
                 <OutlineStar
@@ -44,7 +45,7 @@ export default function StarRating({ rating }: { rating: number }) {
                     left: 0,
                     width: "20px", // Adjusted size
                     height: "20px", // Adjusted size
-                    color: "white",
+                    color: color || 'white',
                   }}
                 />
                 <div
@@ -61,7 +62,7 @@ export default function StarRating({ rating }: { rating: number }) {
                     style={{
                       width: "20px", // Adjusted size
                       height: "20px", // Adjusted size
-                      color: "white",
+                      color: color || 'white',
                     }}
                   />
                 </div>
@@ -77,7 +78,7 @@ export default function StarRating({ rating }: { rating: number }) {
                   left: 0,
                   width: "20px", // Adjusted size
                   height: "20px", // Adjusted size
-                  color: "white",
+                  color: color || 'white',
                 }}
               />
             )}
@@ -91,7 +92,7 @@ export default function StarRating({ rating }: { rating: number }) {
                   left: 0,
                   width: "20px", // Adjusted size
                   height: "20px", // Adjusted size
-                  color: "white",
+                  color: color || 'white',
                 }}
               />
             )}

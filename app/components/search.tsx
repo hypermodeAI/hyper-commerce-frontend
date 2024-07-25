@@ -10,7 +10,7 @@ const createUrl = (
   pathname: string,
   params: URLSearchParams | ReadonlyURLSearchParams,
 ) => {
-  const paramsString = params.toString();
+  const paramsString = params?.toString();
   const queryString = `${paramsString.length ? "?" : ""}${paramsString}`;
 
   return `${pathname}${queryString}`;
@@ -42,7 +42,7 @@ export default function Search() {
       params.set("ai", "true");
     }
 
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params?.toString()}`);
   };
 
   aiEnabled = searchParams.get("ai") === "true";

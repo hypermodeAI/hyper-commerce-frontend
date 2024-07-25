@@ -42,10 +42,10 @@ export function StarRating() {
     setOptimisticRating(newRating);
 
     const params = new URLSearchParams(searchParams);
-    params.set("rating", newRating.toString());
+    params.set("rating", newRating?.toString());
 
     startTransition(() => {
-      replace(`${pathname}?${params.toString()}`);
+      replace(`${pathname}?${params?.toString()}`);
     });
   };
 

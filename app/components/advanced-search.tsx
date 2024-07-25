@@ -25,7 +25,7 @@ export function AdvancedSearch() {
 
     // Start transition to handle routing update
     startTransition(() => {
-      replace(`${pathname}?${params.toString()}`);
+      replace(`${pathname}?${params?.toString()}`);
     });
   };
 

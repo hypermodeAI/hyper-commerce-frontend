@@ -17,7 +17,7 @@ export async function ProductTile({
 }) {
   return (
     <div className="relative group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border border-stone-700 hover:border-indigo-500 bg-black">
-      <Link href={`/product/${product.product.id}`}>
+      <Link href={`/product/${product?.product?.id}`}>
         <Image
           alt={product?.product?.name}
           src={product?.product?.image}

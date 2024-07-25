@@ -1,4 +1,5 @@
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useOptimistic, useTransition } from "react";
 
 interface StarProps {
   filled: boolean;
@@ -29,10 +30,23 @@ export function StarRating() {
   const { replace } = useRouter();
   const pathname = usePathname();
 
+  // Initialize optimistic state with current rating
+  const [optimisticRating, setOptimisticRating] =
+    useOptimistic(ratingFromParams);
+  const [pending, startTransition] = useTransition();
+
   const handleClick = (index: number) => {
+    const newRating = index + 1;
+
+    // Optimistically update the rating
+    setOptimisticRating(newRating);
+
     const params = new URLSearchParams(searchParams);
-    params.set("rating", (index + 1).toString());
-    replace(`${pathname}?${params.toString()}`);
+    params.set("rating", newRating.toString());
+
+    startTransition(() => {
+      replace(`${pathname}?${params.toString()}`);
+    });
   };
 
   return (
@@ -40,7 +54,7 @@ export function StarRating() {
       {[...Array(5)].map((_, index) => (
         <Star
           key={index}
-          filled={index < ratingFromParams}
+          filled={index < optimisticRating}
           onClick={() => handleClick(index)}
         />
       ))}

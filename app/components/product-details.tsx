@@ -16,7 +16,9 @@ export async function ProductDetails({ id }: { id: string }) {
         />
       </div>
       <div className="md:w-2/5 pl-4 flex flex-col">
-        <h1 className="text-2xl md:text-4xl font-semibold mb-2">{product.name}</h1>
+        <h1 className="text-2xl md:text-4xl font-semibold mb-2">
+          {product.name}
+        </h1>
         <div className="rounded-full font-semibild bg-indigo-500 py-2 px-4 mr-auto text-lg mb-4 lg:mb-8">
           ${product.price}
         </div>

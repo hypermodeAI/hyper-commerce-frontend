@@ -60,12 +60,8 @@ export function ProductSkeleton() {
     >
       <div className="w-3/5 h-full rounded bg-white/20 relative"></div>
       <div className="w-2/5 pl-4 flex flex-col">
-        <div className="bg-white/40 h-12 w-62 rounded-full mb-2">
-
-        </div>
-        <div className="rounded-full font-semibild bg-white/20 h-8 w-20 mr-auto text-lg">
-          
-        </div>
+        <div className="bg-white/40 h-12 w-62 rounded-full mb-2"></div>
+        <div className="rounded-full font-semibild bg-white/20 h-8 w-20 mr-auto text-lg"></div>
         <hr className="h-px my-8 border-0 bg-stone-700" />
         <div className="mb-1 bg-white/20 w-full h-3 rounded-full"></div>
         <div className="mb-1 bg-white/20 w-full h-3 rounded-full"></div>
@@ -76,8 +72,7 @@ export function ProductSkeleton() {
         <button
           disabled={true}
           className="cursor-not-allowed opacity-60 w-full bg-white/40 h-10 p-2 rounded-full uppercase font-semibold"
-        >
-        </button>
+        ></button>
       </div>
     </div>
   );

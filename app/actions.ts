@@ -35,7 +35,7 @@ const fetchQuery = async ({ query, variables }: FetchQueryProps) => {
 export async function searchProductWithLLM(
   query: string,
   maxItems: number,
-  thresholdStars: number
+  thresholdStars: number,
 ) {
   console.log("Search with LLM", query, maxItems, thresholdStars);
   const graphqlQuery = `
@@ -84,7 +84,7 @@ export async function searchProductWithLLM(
 export async function searchProducts(
   query: string,
   maxItems: number,
-  thresholdStars: number
+  thresholdStars: number,
 ) {
   console.log("Basic search", query, maxItems, thresholdStars);
   const graphqlQuery = `

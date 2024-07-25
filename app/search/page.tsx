@@ -5,6 +5,8 @@ import {
   AdvancedSearchSkeleton,
 } from "../components/skeletons";
 import { SearchResultsGrid } from "../components/search-results-grid";
+import { generateSearchObjectFromLLM } from "../actions";
+import LLMResponse from "../components/llm-response-box";
 
 export const metadata = {
   title: "Search",
@@ -24,11 +26,22 @@ export default async function SearchPage({
   } = searchParams as {
     [key: string]: string;
   };
+
   return (
     <div className="px-4 flex space-x-4">
-      <Suspense fallback={<AdvancedSearchSkeleton />}>
-        <AdvancedSearch />
-      </Suspense>
+      <div className="w-64 space-y-4 text-stone-400">
+        <Suspense fallback={<AdvancedSearchSkeleton />}>
+          <AdvancedSearch />
+        </Suspense>
+        {aiSearch ? (
+          <Suspense fallback={<div>loading</div>}>
+            <LLMResponse query={searchValue} />
+          </Suspense>
+        ) : (
+          <></>
+        )}
+      </div>
+
       <div className="w-full">
         <Suspense fallback={<SearchSkeleton />}>
           <SearchResultsGrid

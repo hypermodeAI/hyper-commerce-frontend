@@ -146,3 +146,24 @@ export async function getProduct(id: string) {
     return { data };
   }
 }
+
+export async function generateSearchObjectFromLLM(text: string) {
+  const graphqlQuery = `
+    query generateSearchObjectFromLLM($text: String!) {
+      generateSearchObjectFromLLM(text: $text) {
+        userResponse
+      }
+    }
+  `;
+
+  const { error, data } = await fetchQuery({
+    query: graphqlQuery,
+    variables: { text },
+  });
+
+  if (error) {
+    return { error: Array.isArray(error) ? error[0] : error };
+  } else {
+    return { data };
+  }
+}

@@ -4,6 +4,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useOptimistic, useTransition } from "react";
 import { StarRating } from "./star-rating";
 import { XCircleIcon } from "@heroicons/react/24/outline";
+// import LLMResponse from "./llm-response-box"
 
 export function AdvancedSearch() {
   const searchParams = useSearchParams();
@@ -36,16 +37,18 @@ export function AdvancedSearch() {
   }
 
   const rating = searchParams?.get("rating");
+  const textQuery = searchParams?.get("q")
 
   return (
-    <div className="w-64 space-y-2 text-stone-400">
+    <>
       <div className="font-semibold border-b border-stone-600 pb-2">
         Advanced Search
       </div>
       <div className="text-xs">
         Showing results for{" "}
-        <span className="font-bold">&quot;{searchParams?.get("q")}&quot;</span>
+        <span className="font-bold">&quot;{textQuery}&quot;</span>
       </div>
+      {/* <LLMResponse query={textQuery}/> */}
       <div>
         <p className="uppercase text-sm">Customer Reviews</p>
 
@@ -82,6 +85,6 @@ export function AdvancedSearch() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }

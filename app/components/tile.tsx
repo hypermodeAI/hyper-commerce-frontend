@@ -1,21 +1,34 @@
-import { getProduct } from "../actions";
-import { PhotoIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export async function ProductTile({
   product,
 }: {
-  product: { text: string; key: string };
+  product: {
+    product: {
+      description: string;
+      id: string;
+      image: string;
+      name: string;
+      price: string;
+      stars: number;
+    };
+  };
 }) {
-  const response = await getProduct(product?.key);
   return (
-    <div className="relative group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border hover:border-indigo-500 bg-black">
-      <div className="text-white/40 w-1/5 flex flex-col justify-center items-center">
-        <PhotoIcon />
-        <p className="text-nowrap">No photo available</p>
-      </div>
-      <div className="flex items-center absolute bottom-0 left-0 mb-8 ml-8 border border-white/40 text-sm font-semibold rounded-full p-1 w-2/3 overflow-hidden">
-        <div className="px-2 truncate">{product?.text}</div>
-        <div className="bg-indigo-500 rounded-full p-1 px-2">$10.00</div>
+    <div className="relative group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border border-stone-700 hover:border-indigo-500 bg-black">
+      <Image
+        alt={product?.product?.name}
+        src={product?.product?.image}
+        layout="fill"
+        objectFit="cover"
+        className="absolute"
+      />
+      <div className="bg-black flex items-center absolute bottom-0 left-0 mb-6 ml-6 border border-white/40 text-sm font-semibold rounded-full p-1 w-2/3 overflow-hidden">
+        <div className="px-2 truncate">{product?.product?.name}</div>
+        <div className="bg-indigo-500 rounded-full p-1 px-2">
+          <span>$</span>
+          {product?.product?.price}
+        </div>
       </div>
     </div>
   );

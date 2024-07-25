@@ -31,7 +31,7 @@ export default function Search() {
     } else {
       router.push("/");
     }
-  }, 300);
+  }, 200);
 
   const aiSearchToggle = () => {
     const params = new URLSearchParams(searchParams);
@@ -53,7 +53,7 @@ export default function Search() {
         Search
       </label>
       <input
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black"
+        className="peer block w-full rounded-md border border-stone-700 py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black"
         placeholder="Search"
         defaultValue={searchParams?.get("q") || ""}
         onChange={(e) => {

@@ -31,7 +31,7 @@ export function AdvancedSearch() {
       <div>
         <p className="uppercase text-sm mb-2">Items per page</p>
         <div className="flex space-x-2">
-          {["10", "25", "35"].map((value) => (
+          {["9", "12", "15"].map((value) => (
             <button
               key={value}
               className={`px-3 py-1 border rounded-md text-sm transition-colors ${

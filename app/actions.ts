@@ -56,6 +56,7 @@ export async function searchProductWithLLM(
           description
           stars
           price
+          isStocked
         }
         score
         distance
@@ -98,6 +99,7 @@ query searchProducts($query: String!, $maxItems: Int!, $thresholdStars: Float!) 
       description
       stars
       price
+      isStocked
     }
 }
   }

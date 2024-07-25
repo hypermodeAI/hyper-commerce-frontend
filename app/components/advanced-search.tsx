@@ -4,7 +4,6 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useOptimistic, useTransition } from "react";
 import { StarRating } from "./star-rating";
 import { XCircleIcon } from "@heroicons/react/24/outline";
-// import LLMResponse from "./llm-response-box"
 
 export function AdvancedSearch() {
   const searchParams = useSearchParams();
@@ -38,17 +37,17 @@ export function AdvancedSearch() {
 
   const rating = searchParams?.get("rating");
   const textQuery = searchParams?.get("q")
+  const aiSearch = searchParams?.get("ai")
 
   return (
     <>
-      <div className="font-semibold border-b border-stone-600 pb-2">
+      <div className={`${aiSearch ? 'text-indigo-400' : ''} font-semibold border-b border-stone-600 pb-2`}>
         Advanced Search
       </div>
       <div className="text-xs">
         Showing results for{" "}
         <span className="font-bold">&quot;{textQuery}&quot;</span>
       </div>
-      {/* <LLMResponse query={textQuery}/> */}
       <div>
         <p className="uppercase text-sm">Customer Reviews</p>
 
@@ -72,10 +71,10 @@ export function AdvancedSearch() {
           {["9", "12", "15"].map((value) => (
             <button
               key={value}
-              className={`px-3 py-1 border rounded-md text-sm transition-colors ${
+              className={`${aiSearch ? 'border-indigo-800' : ''} px-3 py-1 border rounded-md text-sm transition-colors ${
                 optimisticItemsPerPage === value
-                  ? "bg-stone-600 text-white"
-                  : "border-stone-600 text-stone-600"
+                  ? aiSearch ? "bg-indigo-800 text-indigo-200" : "bg-stone-600 text-white"
+                  : aiSearch ? 'text-indigo-400' : "border-stone-600 text-stone-600"
               }`}
               onClick={() => handleItemsPerPageChange(value)}
               disabled={pending} // Optionally disable button while transitioning

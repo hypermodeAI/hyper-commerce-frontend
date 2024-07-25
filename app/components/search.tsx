@@ -35,7 +35,7 @@ export default function Search() {
 
   const aiSearchToggle = () => {
     const params = new URLSearchParams(searchParams);
-
+    params.delete("q");
     if (params.get("ai") === "true") {
       params.delete("ai");
     } else {
@@ -46,16 +46,16 @@ export default function Search() {
   };
 
   aiEnabled = searchParams.get("ai") === "true";
-
+  const searchedValue = searchParams?.get("q") || ""
   return (
     <div className="relative flex flex-1 flex-shrink-0">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
       <input
-        className="peer block w-full rounded-md border border-stone-700 py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black"
+        className={`${aiEnabled ? 'border-indigo-500' : 'border-stone-700'} peer block w-full rounded-md border py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black`}
         placeholder="Search"
-        defaultValue={searchParams?.get("q") || ""}
+        defaultValue={searchedValue}
         onChange={(e) => {
           handleSearch(e.target.value);
         }}

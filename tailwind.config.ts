@@ -13,12 +13,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        popIn: 'popIn 0.5s ease-out',
+        carousel: 'marquee 60s linear infinite',
+      }
     },
     keyframes: {
       shimmer: {
         "100%": {
           transform: "translateX(100%)",
         },
+      },
+      marquee: {
+        '0%': { transform: 'translateX(0%)' },
+        '100%': { transform: 'translateX(-100%)' }
       },
     },
   },

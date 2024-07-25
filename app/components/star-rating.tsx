@@ -7,17 +7,16 @@ interface StarProps {
 }
 
 function Star({ filled, onClick }: StarProps) {
+  const searchParams = useSearchParams();
+  const aiSearch = searchParams.get("ai");
   return (
-    <span className={`star ${filled ? "filled" : ""}`} onClick={onClick}>
+    <span className={`star ${filled ? aiSearch ? "filled text-indigo-400" : "text-white" : aiSearch ? "text-indigo-800" : "text-stone-700"}`} onClick={onClick}>
       ★
       <style jsx>{`
         .star {
           font-size: 16px;
           cursor: pointer;
           transition: color 0.3s;
-        }
-        .star.filled {
-          color: white;
         }
       `}</style>
     </span>

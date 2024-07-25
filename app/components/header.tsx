@@ -1,21 +1,15 @@
-import Image from "next/image";
 import Search from "./search";
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { Suspense } from "react";
 import { SearchInputSkeleton } from "./skeletons";
+import Logo from "./logo"
 
 export default function Header() {
   return (
-    <div className="flex items-center space-x-4 px-4">
+    <div className="flex items-center justify-between space-x-4 px-4">
       <Link href="/">
-        <Image
-          src="/logo-dark.svg"
-          alt="hypermode logo"
-          className="h-8"
-          width={64}
-          height={64}
-        />
+        <Logo/>
       </Link>
       <Suspense fallback={<SearchInputSkeleton />}>
         <Search />

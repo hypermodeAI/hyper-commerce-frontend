@@ -16,15 +16,14 @@ export async function ProductTile({
   };
 }) {
   return (
-    <div className="relative group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border border-stone-700 hover:border-indigo-500 bg-black">
+    <div className="flex items-center justify-center relative group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border border-stone-700 hover:border-indigo-500 bg-white">
       <Link href={`/product/${product?.product?.id}`}>
-        <Image
-          alt={product?.product?.name}
-          src={product?.product?.image}
-          layout="fill"
-          objectFit="cover"
-          className="absolute"
-        />
+      <Image
+        alt={product?.product?.name}
+        src={product?.product?.image}
+        width="150"
+        height="150"
+      />
         <div className="bg-black flex items-center justify-between absolute bottom-0 left-0 mb-6 ml-6 border border-white/40 text-sm font-semibold rounded-full p-1 w-2/3 overflow-hidden">
           <div className="px-2 truncate">{product?.product?.name}</div>
           <div className="bg-indigo-500 rounded-full p-1 px-2">

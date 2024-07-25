@@ -37,12 +37,12 @@ function ThreeItemGridItem({
 }
 
 export async function ThreeItemGrid() {
-  const response = await searchProductWithLLM("stuffed animals", 3, 1);
+  const response = await searchProductWithLLM("Items that people of all ages would enjoy", 3, 1);
 
   const topThreeProducts =
     response?.data?.searchProductWithLLM?.searchRes.searchObjs || [];
   return (
-    <section className="mx-auto grid w-full gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 max-h-[90vh]">
+    <section className="mx-auto grid w-full gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 max-h-[60vh]">
       <ThreeItemGridItem size="full" item={topThreeProducts[0]} />
       <ThreeItemGridItem size="half" item={topThreeProducts[1]} />
       <ThreeItemGridItem size="half" item={topThreeProducts[2]} />

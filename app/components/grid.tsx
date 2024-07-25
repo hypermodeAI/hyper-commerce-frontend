@@ -44,7 +44,7 @@ export async function ThreeItemGrid() {
   const response = await searchProductWithLLM(
     "give me the most popular and unique items",
     3,
-    1
+    1,
   );
 
   const topThreeProducts =

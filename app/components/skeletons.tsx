@@ -22,12 +22,33 @@ export function TileSkeleton() {
 export function SearchSkeleton() {
   return (
     <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-3 ">
-      <TileSkeleton />
-      <TileSkeleton />
-      <TileSkeleton />
-      <TileSkeleton />
-      <TileSkeleton />
-      <TileSkeleton />
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
+      <div className="h-[40vh]">
+        <TileSkeleton />
+      </div>
     </div>
   );
 }

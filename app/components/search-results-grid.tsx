@@ -44,14 +44,13 @@ export async function SearchResultsGrid({
             {products.map(
               (
                 item: {
-                  product: {
                     description: string;
                     id: string;
                     name: string;
                     image: string;
                     price: string;
                     stars: number;
-                  };
+                    isStocked: string;
                 },
                 i: number
               ) => (

@@ -8,14 +8,13 @@ function ThreeItemGridItem({
   size,
 }: {
   item: {
-    product: {
       description: string;
       id: string;
       name: string;
       image: string;
       price: string;
       stars: number;
-    };
+      isStocked: string;
   };
   size: "full" | "half";
 }) {

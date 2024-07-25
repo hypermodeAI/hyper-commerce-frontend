@@ -30,7 +30,7 @@ function ThreeItemGridItem({
     >
       <div className="relative block aspect-square h-full w-full">
         <Suspense fallback={<TileSkeleton />}>
-          <ProductTile product={item?.product} />
+          <ProductTile size={size} product={item?.product} />
         </Suspense>
       </div>
     </div>

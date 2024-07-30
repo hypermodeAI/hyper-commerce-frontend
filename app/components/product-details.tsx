@@ -6,14 +6,14 @@ export async function ProductDetails({ id }: { id: string }) {
   const response = await getProduct(id);
   const product = response?.data?.getProduct;
   return (
-    <div className="rounded-lg bg-black border border-stone-700 p-6 w-full h-full md:h-[90vh] flex flex-col md:flex-row">
-      <div className="md:w-3/5 h-full relative h-64 md:h-auto mb-2 md:mb-0">
+    <div className="rounded-lg bg-black border border-stone-700 p-6 w-full h-full flex flex-col md:flex-row">
+      <div className="md:w-3/5 rounded-md bg-white flex items-center justify-center relative h-[40vh] md:h-[90vh] md:h-auto mb-2 md:mb-0">
         <Image
           alt={product?.name}
           src={product?.image}
-          layout="fill"
-          objectFit="cover"
-          className="absolute rounded"
+          height="65"
+          width="65"
+          className="absolute rounded-md w-auto h-full"
         />
       </div>
       <div className="md:w-2/5 pl-4 flex flex-col">

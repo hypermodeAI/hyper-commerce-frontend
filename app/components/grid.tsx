@@ -46,7 +46,7 @@ export async function ThreeItemGrid() {
 
   const topThreeProducts = response?.data?.searchProducts?.searchObjs || [];
   return (
-    <section className="mx-auto grid w-full gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 max-h-[60vh]">
+    <section className="mx-auto grid w-full gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 md:max-h-[60vh]">
       <ThreeItemGridItem size="full" item={topThreeProducts[0]} />
       <ThreeItemGridItem size="half" item={topThreeProducts[1]} />
       <ThreeItemGridItem size="half" item={topThreeProducts[2]} />

@@ -53,7 +53,7 @@ export default function Search() {
         Search
       </label>
       <input
-        className={`${aiEnabled ? 'border-indigo-500' : 'border-stone-700'} peer block w-full rounded-md border py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black`}
+        className={`${aiEnabled ? "border-indigo-500" : "border-stone-700"} peer block w-full rounded-md border py-[9px] pl-14 text-sm outline-2 placeholder:text-gray-500 bg-black`}
         placeholder="Search"
         defaultValue={searchParams?.get("q") || ""}
         onChange={(e) => {

@@ -1,6 +1,6 @@
 import { getProduct } from "../actions";
 import Image from "next/image";
-import StarRating from "./product-rating"
+import StarRating from "./product-rating";
 
 export async function ProductDetails({ id }: { id: string }) {
   const response = await getProduct(id);
@@ -26,9 +26,15 @@ export async function ProductDetails({ id }: { id: string }) {
           </div>
         </div>
         <div className="mb-2">
-          <StarRating rating={product?.stars}  />
+          <StarRating rating={product?.stars} />
         </div>
-        <div className="mb-4 text-sm">{product?.isStocked ? <div>In Stock</div> : <div className="text-red-600">Out of Stock</div>}</div>
+        <div className="mb-4 text-sm">
+          {product?.isStocked ? (
+            <div>In Stock</div>
+          ) : (
+            <div className="text-red-600">Out of Stock</div>
+          )}
+        </div>
         <div className="mb-8 text-white/70">{product?.description}</div>
         <button
           disabled={true}

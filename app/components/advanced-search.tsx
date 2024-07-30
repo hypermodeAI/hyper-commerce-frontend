@@ -11,7 +11,7 @@ export function AdvancedSearch() {
   const pathname = usePathname();
 
   const [optimisticItemsPerPage, setOptimisticItemsPerPage] = useOptimistic(
-    searchParams?.get("itemsPerPage") || "10"
+    searchParams?.get("itemsPerPage") || "10",
   );
   const [pending, startTransition] = useTransition();
 
@@ -36,12 +36,14 @@ export function AdvancedSearch() {
   }
 
   const rating = searchParams?.get("rating");
-  const textQuery = searchParams?.get("q")
-  const aiSearch = searchParams?.get("ai")
+  const textQuery = searchParams?.get("q");
+  const aiSearch = searchParams?.get("ai");
 
   return (
     <>
-      <div className={`${aiSearch ? 'text-indigo-400' : ''} font-semibold border-b border-stone-600 pb-2`}>
+      <div
+        className={`${aiSearch ? "text-indigo-400" : ""} font-semibold border-b border-stone-600 pb-2`}
+      >
         Advanced Search
       </div>
       <div className="text-xs">
@@ -71,10 +73,14 @@ export function AdvancedSearch() {
           {["9", "12", "15"].map((value) => (
             <button
               key={value}
-              className={`${aiSearch ? 'border-indigo-800' : ''} px-3 py-1 border rounded-md text-sm transition-colors ${
+              className={`${aiSearch ? "border-indigo-800" : ""} px-3 py-1 border rounded-md text-sm transition-colors ${
                 optimisticItemsPerPage === value
-                  ? aiSearch ? "bg-indigo-800 text-indigo-200" : "bg-stone-600 text-white"
-                  : aiSearch ? 'text-indigo-400' : "border-stone-600 text-stone-600"
+                  ? aiSearch
+                    ? "bg-indigo-800 text-indigo-200"
+                    : "bg-stone-600 text-white"
+                  : aiSearch
+                    ? "text-indigo-400"
+                    : "border-stone-600 text-stone-600"
               }`}
               onClick={() => handleItemsPerPageChange(value)}
               disabled={pending} // Optionally disable button while transitioning

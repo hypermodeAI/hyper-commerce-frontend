@@ -1,13 +1,16 @@
 import { ProductTile } from "./tile";
-import { searchProductWithLLM } from "../actions";
+import { searchProducts } from "../actions";
 import { Suspense } from "react";
 import { TileSkeleton } from "./skeletons";
 
 export async function Carousel() {
-  const response = await searchProductWithLLM("Items in the Stuffed Animals & Plush Toys category", 7, 1);
+  const response = await searchProducts(
+    "Items in the Stuffed Animals & Plush Toys category",
+    7,
+    1,
+  );
 
-  const products =
-    response?.data?.searchProductWithLLM?.searchRes.searchObjs || [];
+  const products = response?.data?.searchProducts?.searchObjs || [];
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
   const carouselProducts = [...products, ...products, ...products];
 

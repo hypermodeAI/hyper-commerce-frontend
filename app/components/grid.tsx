@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { searchProductWithLLM } from "../actions";
+import { searchProducts } from "../actions";
 import { TileSkeleton } from "./skeletons";
 import { ProductTile } from "./tile";
 
@@ -38,14 +38,13 @@ function ThreeItemGridItem({
 }
 
 export async function ThreeItemGrid() {
-  const response = await searchProductWithLLM(
+  const response = await searchProducts(
     "Items that people of all ages would enjoy",
     3,
-    1
+    1,
   );
 
-  const topThreeProducts =
-    response?.data?.searchProductWithLLM?.searchRes.searchObjs || [];
+  const topThreeProducts = response?.data?.searchProducts?.searchObjs || [];
   return (
     <section className="mx-auto grid w-full gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 max-h-[60vh]">
       <ThreeItemGridItem size="full" item={topThreeProducts[0]} />

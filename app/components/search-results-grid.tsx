@@ -1,4 +1,4 @@
-import { searchProducts, searchProductWithLLM } from "../actions";
+import { searchProducts } from "../actions";
 import { ProductTile } from "./tile";
 
 export async function SearchResultsGrid({
@@ -14,30 +14,28 @@ export async function SearchResultsGrid({
 }) {
   // TODO: bug when toggling AI on/off when products are already listed
   const response = aiSearch
-    ? await searchProductWithLLM(
+    ? await searchProducts(
         searchValue,
         parseInt(maxItems) || 9,
-        parseInt(thresholdStars) || 0
+        parseInt(thresholdStars) || 0,
       )
     : await searchProducts(
         searchValue,
         parseInt(maxItems) || 9,
-        parseInt(thresholdStars) || 0
+        parseInt(thresholdStars) || 0,
       );
 
-  const products = aiSearch
-    ? response?.data?.searchProductWithLLM?.searchRes.searchObjs
-    : response?.data?.searchProducts?.searchObjs || [];
+  const products = response?.data?.searchProducts?.searchObjs || [];
 
   return (
     <div>
-      {aiSearch && response?.data ? (
+      {/* {aiSearch && response?.data ? (
         <div className="animate-popIn rounded-t rounded-br bg-indigo-500 text-white p-4 text-sm w-1/2 mb-4">
-          {response?.data?.searchProductWithLLM?.llmObj?.userResponse}
+          {response?.data?.searchProducts?.llmObj?.userResponse}
         </div>
       ) : (
         <></>
-      )}
+      )} */}
       <div>
         {products?.length > 0 ? (
           <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-3 ">
@@ -54,12 +52,12 @@ export async function SearchResultsGrid({
                     isStocked: string;
                   };
                 },
-                i: number
+                i: number,
               ) => (
                 <div key={i} className="h-[40vh]">
                   <ProductTile product={item?.product} />
                 </div>
-              )
+              ),
             )}
           </div>
         ) : (

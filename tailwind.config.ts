@@ -14,9 +14,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       animation: {
-        popIn: 'popIn 0.5s ease-out',
-        carousel: 'marquee 60s linear infinite',
-      }
+        popIn: "popIn 0.5s ease-out",
+        carousel: "marquee 60s linear infinite",
+      },
     },
     keyframes: {
       shimmer: {
@@ -25,8 +25,8 @@ const config: Config = {
         },
       },
       marquee: {
-        '0%': { transform: 'translateX(0%)' },
-        '100%': { transform: 'translateX(-100%)' }
+        "0%": { transform: "translateX(0%)" },
+        "100%": { transform: "translateX(-100%)" },
       },
     },
   },

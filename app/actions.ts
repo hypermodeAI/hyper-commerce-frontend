@@ -32,61 +32,10 @@ const fetchQuery = async ({ query, variables }: FetchQueryProps) => {
   }
 };
 
-export async function searchProductWithLLM(
-  query: string,
-  maxItems: number,
-  thresholdStars: number
-) {
-  console.log("Search with LLM", query, maxItems, thresholdStars);
-  const graphqlQuery = `
-    query searchProductWithLLM($query: String!, $maxItems: Int!, $thresholdStars: Float!) {
-      searchProductWithLLM(query: $query, maxItems: $maxItems, thresholdStars: $thresholdStars) {
-            llmObj {
-      userResponse
-      searchQuery
-    }
-    searchRes {
-      status
-      error
-      searchObjs {
-        product {
-          name
-          id
-          image
-          description
-          stars
-          price
-          isStocked
-          category
-        }
-        score
-        distance
-      }
-    }
-      }
-    }
-  `;
-
-  const { error, data } = await fetchQuery({
-    query: graphqlQuery,
-    variables: {
-      query,
-      maxItems,
-      thresholdStars,
-    },
-  });
-
-  if (error) {
-    return { error: Array.isArray(error) ? error[0] : error };
-  } else {
-    return { data };
-  }
-}
-
 export async function searchProducts(
   query: string,
   maxItems: number,
-  thresholdStars: number
+  thresholdStars: number,
 ) {
   console.log("Basic search", query, maxItems, thresholdStars);
   const graphqlQuery = `

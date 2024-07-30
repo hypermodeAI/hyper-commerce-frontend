@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 
 export default function Logo() {
   const searchParams = useSearchParams();
-  const aiSearch = searchParams.get("ai");
 
   // Construct the URL with current search params
   const homeUrl =
@@ -13,11 +12,7 @@ export default function Logo() {
 
   return (
     <Link href={homeUrl}>
-      <div
-        className={`${
-          aiSearch ? "text-indigo-500" : "text-white"
-        } flex items-center font-semibold text-xl italic`}
-      >
+      <div className="text-white flex items-center font-semibold text-xl italic">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -28,16 +23,13 @@ export default function Logo() {
         >
           <g clip-path="url(#a)">
             <path
-              fill={aiSearch ? "rgb(99 102 241)" : "#fff"}
+              fill="#fff"
               d="M90.2 0 76 55.5H39.5L53.7 0H14.2L0 55.5h32.3l-16.7 65.8 60.3-65.4-17.2 67.2h39.5L129.7 0z"
             />
           </g>
           <defs>
             <clipPath id="a">
-              <path
-                fill={aiSearch ? "rgb(99 102 241)" : "#fff"}
-                d="M0 0h130v123.2H0z"
-              />
+              <path fill="#fff" d="M0 0h130v123.2H0z" />
             </clipPath>
           </defs>
         </svg>

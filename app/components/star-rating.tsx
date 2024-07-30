@@ -8,10 +8,9 @@ interface StarProps {
 
 function Star({ filled, onClick }: StarProps) {
   const searchParams = useSearchParams();
-  const aiSearch = searchParams.get("ai");
   return (
     <span
-      className={`star ${filled ? (aiSearch ? "filled text-indigo-400" : "text-white") : aiSearch ? "text-indigo-800" : "text-stone-700"}`}
+      className={`star ${filled ? "text-white" : "text-stone-700"}`}
       onClick={onClick}
     >
       ★

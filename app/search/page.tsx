@@ -17,7 +17,6 @@ export default async function SearchPage({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const {
-    ai: aiSearch,
     q: searchValue,
     rating: thresholdStars,
     itemsPerPage: maxItems,
@@ -36,7 +35,6 @@ export default async function SearchPage({
       <div className="w-full">
         <Suspense fallback={<SearchSkeleton />}>
           <SearchResultsGrid
-            aiSearch={aiSearch}
             searchValue={searchValue}
             thresholdStars={thresholdStars}
             maxItems={maxItems}

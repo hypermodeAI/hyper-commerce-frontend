@@ -25,7 +25,7 @@ function Star({ filled, onClick }: StarProps) {
   );
 }
 
-export function StarRating() {
+export function StarRatingFilter() {
   const searchParams = useSearchParams();
   const ratingFromParams = parseInt(searchParams.get("rating") || "0", 10);
   const { replace } = useRouter();
@@ -68,4 +68,4 @@ export function StarRating() {
   );
 }
 
-export default StarRating;
+export default StarRatingFilter;

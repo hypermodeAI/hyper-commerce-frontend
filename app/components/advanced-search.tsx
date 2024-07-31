@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useOptimistic, useTransition } from "react";
-import { StarRating } from "./star-rating";
+import { StarRatingFilter } from "./rating-filter";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 export function AdvancedSearch() {
@@ -51,7 +51,7 @@ export function AdvancedSearch() {
         <p className="uppercase text-sm">Customer Reviews</p>
 
         <div className="flex items-center space-x-2">
-          <StarRating />
+          <StarRatingFilter />
           <span className="text-sm">& up</span>
           {rating && rating !== "0" && (
             <button
@@ -72,7 +72,7 @@ export function AdvancedSearch() {
               key={value}
               className="px-3 py-1 border rounded-md text-sm transition-colors bg-stone-600 text-white border-stone-600 text-stone-600"
               onClick={() => handleItemsPerPageChange(value)}
-              disabled={pending} // Optionally disable button while transitioning
+              disabled={pending}
             >
               {value}
             </button>

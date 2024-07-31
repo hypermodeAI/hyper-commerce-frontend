@@ -4,7 +4,7 @@ This frontend for Hypermode's [composable-commerce storefront demo](https://gith
 
 ## Running Locally
 
-To run this project locally, start by setting up your environment variables. Copy the definitions from [`.env.example`](https://github.com/hypermodeAI/hyper-commerce/blob/main/.env.example) into a new file named `.env.local` at the root of your project, and provide the values from your Hypermode dashboard.
+To run this project locally, start by setting up your environment variables. Copy the definitions from [`.env.example`](https://github.com/hypermodeAI/hyper-commerce-frontend/blob/main/.env.example) into a new file named `.env.local` at the root of your project, and provide the values from your Hypermode dashboard.
 
 Once your environment variables are configured, install the necessary dependencies with:
 
@@ -18,7 +18,7 @@ Then, start the development server using:
 pnpm dev
 ```
 
-Your app should be up and running at [localhost:3000](localhost:3000)
+Your app should be up and running at [localhost:3000](http://localhost:3000/)
 
 ## Deploy with Vercel
 

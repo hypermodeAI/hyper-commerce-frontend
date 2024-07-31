@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 export default function Logo() {
-  const searchParams = useSearchParams();
-
-  // Construct the URL with current search params
-  const homeUrl =
-    `/` + (searchParams.toString() ? `?${searchParams.toString()}` : "");
-
   return (
-    <Link href={homeUrl}>
+    <Link href="https://github.com/hypermodeAI/hyper-commerce?tab=readme-ov-file#hyper-commerce">
       <div className="text-white flex items-center font-semibold text-xl italic">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,6 @@ export async function SearchResultsGrid({
   thresholdStars: string;
   maxItems: string;
 }) {
-  // TODO: bug when toggling AI on/off when products are already listed
   const response = await searchProducts(
     searchValue,
     parseInt(maxItems) || 9,

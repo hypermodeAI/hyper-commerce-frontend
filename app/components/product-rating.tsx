@@ -25,8 +25,8 @@ export default function StarRating({
             key={index}
             style={{
               position: "relative",
-              width: "20px", // Adjusted size
-              height: "20px", // Adjusted size
+              width: "20px",
+              height: "20px",
               display: "inline-block",
               marginRight: "4px",
             }}
@@ -38,8 +38,8 @@ export default function StarRating({
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: "20px", // Adjusted size
-                  height: "20px", // Adjusted size
+                  width: "20px",
+                  height: "20px",
                   overflow: "hidden",
                   color: color || "white",
                 }}
@@ -49,8 +49,8 @@ export default function StarRating({
                     position: "absolute",
                     top: 0,
                     left: 0,
-                    width: "20px", // Adjusted size
-                    height: "20px", // Adjusted size
+                    width: "20px",
+                    height: "20px",
                     color: color || "white",
                   }}
                 />
@@ -59,15 +59,15 @@ export default function StarRating({
                     position: "absolute",
                     top: 0,
                     left: 0,
-                    width: `${fractionalStar * 20}px`, // Adjusted size
-                    height: "20px", // Adjusted size
+                    width: `${fractionalStar * 20}px`,
+                    height: "20px",
                     overflow: "hidden",
                   }}
                 >
                   <SolidStar
                     style={{
-                      width: "20px", // Adjusted size
-                      height: "20px", // Adjusted size
+                      width: "20px",
+                      height: "20px",
                       color: color || "white",
                     }}
                   />
@@ -82,8 +82,8 @@ export default function StarRating({
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: "20px", // Adjusted size
-                  height: "20px", // Adjusted size
+                  width: "20px",
+                  height: "20px",
                   color: color || "white",
                 }}
               />
@@ -96,8 +96,8 @@ export default function StarRating({
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: "20px", // Adjusted size
-                  height: "20px", // Adjusted size
+                  width: "20px",
+                  height: "20px",
                   color: color || "white",
                 }}
               />
